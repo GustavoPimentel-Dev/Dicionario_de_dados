@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dicionário de Dados e Governança | Localiza Rent a Car</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Topbar Fixa -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button id="sidebarToggleBtn" class="icon-btn mobile-only" type="button" aria-label="Alternar menu de tabelas">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="brand-badge">
+        <i class="fa-solid fa-database"></i>
+      </div>
+      <div class="brand-titles">
+        <span class="company-name">Localiza Rent a Car</span>
+        <h1 class="project-title">Dicionário de Dados &amp; Governança — Sistema de Gestão Operacional</h1>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="framework-pill"><i class="fa-solid fa-shield-halved"></i> DAMA-DMBOK &amp; COBIT</span>
+      <button id="themeToggleBtn" class="theme-toggle-btn" type="button" aria-label="Alternar tema claro ou escuro">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+        <span id="themeLabel">Modo Escuro</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Backdrop Mobile -->
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Esquerda (Navegação) -->
+    <aside id="sidebar" class="sidebar" aria-label="Navegação das tabelas do banco de dados">
+      <div class="sidebar-header">
+        <h2><i class="fa-solid fa-table-list"></i> Catálogo de Tabelas</h2>
+        <span class="table-count-badge" id="sidebarTableCount">20</span>
+      </div>
+      <div class="sidebar-filter-box">
+        <input type="text" id="sidebarQuickFilter" placeholder="Filtrar menu de tabelas..." aria-label="Filtrar menu lateral">
+      </div>
+      <nav class="sidebar-nav">
+        <ul id="sidebarMenuList">
+          <li><a href="#filial" data-target="filial"><span class="nav-tbl-name">filial</span><span class="nav-col-count">4</span></a></li>
+          <li><a href="#categoria_veiculo" data-target="categoria_veiculo"><span class="nav-tbl-name">categoria_veiculo</span><span class="nav-col-count">3</span></a></li>
+          <li><a href="#veiculo" data-target="veiculo"><span class="nav-tbl-name">veiculo</span><span class="nav-col-count">9</span></a></li>
+          <li><a href="#contrato" data-target="contrato"><span class="nav-tbl-name">contrato</span><span class="nav-col-count">7</span></a></li>
+          <li><a href="#usuario" data-target="usuario"><span class="nav-tbl-name">usuario</span><span class="nav-col-count">5</span></a></li>
+          <li><a href="#vistoria" data-target="vistoria"><span class="nav-tbl-name">vistoria</span><span class="nav-col-count">9</span></a></li>
+          <li><a href="#multa" data-target="multa"><span class="nav-tbl-name">multa</span><span class="nav-col-count">6</span></a></li>
+          <li><a href="#fatura" data-target="fatura"><span class="nav-tbl-name">fatura</span><span class="nav-col-count">6</span></a></li>
+          <li><a href="#item_fatura" data-target="item_fatura"><span class="nav-tbl-name">item_fatura</span><span class="nav-col-count">6</span></a></li>
+          <li><a href="#pagamento" data-target="pagamento"><span class="nav-tbl-name">pagamento</span><span class="nav-col-count">7</span></a></li>
+          <li><a href="#cliente" data-target="cliente"><span class="nav-tbl-name">cliente</span><span class="nav-col-count">14</span></a></li>
+          <li><a href="#atendimento" data-target="atendimento"><span class="nav-tbl-name">atendimento</span><span class="nav-col-count">7</span></a></li>
+          <li><a href="#seguro" data-target="seguro"><span class="nav-tbl-name">seguro</span><span class="nav-col-count">3</span></a></li>
+          <li><a href="#contrato_seguro" data-target="contrato_seguro"><span class="nav-tbl-name">contrato_seguro</span><span class="nav-col-count">3</span></a></li>
+          <li><a href="#condutor_adicional" data-target="condutor_adicional"><span class="nav-tbl-name">condutor_adicional</span><span class="nav-col-count">4</span></a></li>
+          <li><a href="#log_acesso" data-target="log_acesso"><span class="nav-tbl-name">log_acesso</span><span class="nav-col-count">5</span></a></li>
+          <li><a href="#telemetria_veiculo" data-target="telemetria_veiculo"><span class="nav-tbl-name">telemetria_veiculo</span><span class="nav-col-count">4</span></a></li>
+          <li><a href="#manutencao" data-target="manutencao"><span class="nav-tbl-name">manutencao</span><span class="nav-col-count">5</span></a></li>
+          <li><a href="#reserva" data-target="reserva"><span class="nav-tbl-name">reserva</span><span class="nav-col-count">9</span></a></li>
+          <li><a href="#telefone" data-target="telefone"><span class="nav-tbl-name">telefone</span><span class="nav-col-count">3</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Área Principal (Main) -->
+    <main class="main-content">
+      <!-- Seção de Identificação do Projeto -->
+      <section class="project-id-card" aria-labelledby="projectIdHeading">
+        <div class="project-id-header">
+          <div>
+            <span class="section-eyebrow">Metadados Institucionais e Governança Corporativa</span>
+            <h2 id="projectIdHeading">Identificação do Projeto de Modelagem de Banco de Dados</h2>
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi-box">
+              <span class="kpi-value">20</span>
+              <span class="kpi-label">Entidades / Tabelas</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-value">119</span>
+              <span class="kpi-label">Atributos Catalogados</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-value">LGPD / CDC</span>
+              <span class="kpi-label">Conformidade Legal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-id-grid">
+          <div class="id-block id-block-scope">
+            <h3><i class="fa-solid fa-bullseye"></i> Escopo do Projeto</h3>
+            <p>
+              Centralização das operações de locação de veículos da <strong>Localiza Rent a Car</strong>, gerenciando a disponibilidade temporal da frota, prevenção de conflitos de reservas, preservação integral do histórico contratual e rastreabilidade financeira e operacional. Abrange cadastro de clientes, catálogo de veículos, reservas, contratos, vistorias, faturamento, gestão de filiais, manutenção, telemetria, suporte e controle de multas, em estrita conformidade com a LGPD (Lei n. 13.709/2018) e o CDC (Lei n. 8.078/1990), excluindo marketplaces externos, contabilidade/folha e transmissão fiscal à SEFAZ.
+            </p>
+          </div>
+
+          <div class="id-block">
+            <h3><i class="fa-solid fa-server"></i> Tecnologia &amp; Arquitetura</h3>
+            <ul class="tech-list">
+              <li><strong>SGBD:</strong> MySQL (Engine InnoDB)</li>
+              <li><strong>Schema Físico:</strong> <code>mydb</code></li>
+              <li><strong>Codificação:</strong> UTF-8</li>
+              <li><strong>Frameworks:</strong> DAMA-DMBOK2 &amp; COBIT 2019</li>
+              <li><strong>Orientação Acadêmica:</strong> Prof. Dr. Diego Marques de Carvalho (UNICID)</li>
+            </ul>
+          </div>
+
+          <div class="id-block">
+            <h3><i class="fa-solid fa-users-gear"></i> Responsáveis (Data Owners &amp; Stewards)</h3>
+            <ul class="owners-list">
+              <li>
+                <strong>Gustavo Ferreira R. Pimentel</strong>
+                <span>Arquiteto de Dados — Modelagem Conceitual/Lógica, Linhagem e Conformidade LGPD</span>
+              </li>
+              <li>
+                <strong>Gabriel da Conceição</strong>
+                <span>Desenvolvedor de Banco de Dados — Engenharia DDL, Regras de Negócio e Integridade</span>
+              </li>
+              <li>
+                <strong>Dania Huito Choque</strong>
+                <span>Administrador de Banco de Dados (DBA) — Segurança, RBAC, Retenção e Auditoria</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Painel de Controle Acima do Dicionário -->
+      <section class="control-panel" aria-label="Controles do dicionário de dados">
+        <div class="action-buttons-group">
+          <a href="docs/Especificacao_Requisitos_Regras_Negocio_BD.pdf" download="Especificacao_Requisitos_Regras_Negocio_BD.pdf" class="btn btn-primary">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Baixar Especificação de Requisitos (PDF)</span>
+          </a>
+          <button type="button" id="openDerModalBtn" class="btn btn-outline">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Abrir DER em Tela Cheia (Zoom &amp; Pan)</span>
+          </button>
+        </div>
+
+        <div class="search-and-filters">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="searchInput" placeholder="Pesquisar por tabela, coluna, tipo, constraint, LGPD, linhagem ou RBAC..." aria-label="Pesquisar no dicionário de dados">
+            <button type="button" id="clearSearchBtn" class="clear-search-btn" title="Limpar pesquisa" aria-label="Limpar pesquisa">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="lgpd-filter-group" role="group" aria-label="Filtro por classificação de privacidade LGPD">
+            <button type="button" class="filter-chip active" data-lgpd="ALL">Todos</button>
+            <button type="button" class="filter-chip chip-dps" data-lgpd="DPS">[DPS] Sensível</button>
+            <button type="button" class="filter-chip chip-dp" data-lgpd="DP">[DP] Pessoal</button>
+            <button type="button" class="filter-chip chip-na" data-lgpd="N/A">[N/A] Não Aplicável</button>
+          </div>
+        </div>
+
+        <div class="search-status-bar">
+          <span id="searchResultsCounter">Exibindo <strong>20</strong> tabelas e <strong>119</strong> atributos.</span>
+          <div class="lgpd-legend">
+            <span>Legenda LGPD:</span>
+            <span class="badge-lgpd badge-dps">[DPS] Dado Pessoal Sensível</span>
+            <span class="badge-lgpd badge-dp">[DP] Dado Pessoal</span>
+            <span class="badge-lgpd badge-na">[N/A] Não Aplicável</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estado Vazio de Pesquisa -->
+      <div id="emptySearchState" class="empty-state hidden">
+        <i class="fa-solid fa-filter-circle-xmark"></i>
+        <h3>Nenhum atributo ou tabela encontrado</h3>
+        <p>Nenhum registro corresponde aos critérios informados na barra de pesquisa ou filtro LGPD.</p>
+        <button type="button" id="resetFiltersBtn" class="btn btn-primary">Restaurar Visualização Completa</button>
+      </div>
+
+      <!-- Container das 20 Tabelas do Dicionário -->
+      <div id="dictionaryContainer" class="dictionary-container">
+
+        <!-- 1. TABELA: filial -->
+        <section id="filial" class="dict-section" data-table="filial">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">01</span>
+                <h3>filial</h3>
+                <span class="domain-tag">Infraestrutura &amp; Unidades</span>
+              </div>
+              <p class="table-purpose">Armazena o cadastro das agências e unidades operacionais da Localiza Rent a Car responsáveis pela guarda, retirada e devolução da frota (RF02, RF03).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 4 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_filial</td>
+                  <td>Identificador único sequencial da filial operacional no sistema.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL (Auto-Increment) | Destino: Tabelas veiculo e reserva</td>
+                  <td>Leitura: Todos os perfis internos | Escrita: Administrador / T.I</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">nome</td>
+                  <td>Nome comercial ou designação geográfica da agência/filial (ex.: Filial Aeroporto Guarulhos).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Módulo Administrativo Corporativo | Destino: Portal de Reservas, Contratos e Relatórios (RF07)</td>
+                  <td>Leitura: Público (App/Site) e Colaboradores | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">cnpj</td>
+                  <td>Cadastro Nacional da Pessoa Jurídica da unidade/filial operacional (dado corporativo PJ).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Cadastro Corporativo / Receita Federal | Destino: Contratos de Locação e Faturamento</td>
+                  <td>Leitura: Colaboradores Internos e Financeiro | Escrita: Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">ativo</td>
+                  <td>Indicador de exclusão lógica e status operacional da filial (1 = Ativa, 0 = Inativa), conforme Seção 1.4.</td>
+                  <td class="col-type">TINYINT</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Módulo de Gestão de Unidades | Destino: Filtro de disponibilidade em Reservas (RF02)</td>
+                  <td>Leitura: Colaboradores e Sistema | Escrita: Gerente / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 2. TABELA: categoria_veiculo -->
+        <section id="categoria_veiculo" class="dict-section" data-table="categoria_veiculo">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">02</span>
+                <h3>categoria_veiculo</h3>
+                <span class="domain-tag">Catálogo &amp; Tarifação</span>
+              </div>
+              <p class="table-purpose">Define os grupos tarifários da frota (ex.: Econômico, Sedan, SUV) e o valor base da diária utilizado em reservas e contratos (RF02, RF03, RF06).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 3 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_categoria</td>
+                  <td>Identificador único da categoria tarifária de veículos.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL (Auto-Increment) | Destino: Tabelas veiculo e reserva</td>
+                  <td>Leitura: Todos os perfis | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">nome</td>
+                  <td>Denominação comercial do grupo de veículos (ex.: Grupo A - Compacto, Grupo SUV).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Cadastro de Catálogo de Frota | Destino: Site/App de Reservas e Faturas</td>
+                  <td>Leitura: Público (Site/App) e Colaboradores | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">valor-_diria_padrao</td>
+                  <td>Tarifa base padrão por diária da categoria. Nota DDL: grafia exata extraída do script (recomenda-se ajuste para valor_diaria_padrao e DECIMAL(10,2)).</td>
+                  <td class="col-type">DECIMAL(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela de Precificação Comercial | Destino: Cálculo de Reservas e Faturamento (RF06)</td>
+                  <td>Leitura: Público (Site/App), Atendente e Financeiro | Escrita: Gerente / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 3. TABELA: veiculo -->
+        <section id="veiculo" class="dict-section" data-table="veiculo">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">03</span>
+                <h3>veiculo</h3>
+                <span class="domain-tag">Gestão de Frota</span>
+              </div>
+              <p class="table-purpose">Registra o inventário físico da frota da Localiza, identificando características técnicas, alocação por filial, categoria e disponibilidade operacional (RF03, RN12).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 9 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_veiculo</td>
+                  <td>Identificador único interno do veículo na base operacional.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: contrato, vistoria, multa, telemetria_veiculo, manutencao</td>
+                  <td>Leitura: Colaboradores Internos | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">placa</td>
+                  <td>Placa de identificação veicular (padrão nacional ou Mercosul).</td>
+                  <td class="col-type">VARCHAR(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Registro DETRAN / Cadastro de Frota | Destino: Contratos, Vistorias e Vínculo de Multas (RF10)</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro, Depto. Multas | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">chassi</td>
+                  <td>Código alfanumérico único de identificação do fabricante (VIN).</td>
+                  <td class="col-type">VARCHAR(50)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Nota Fiscal de Aquisição / Fabricante | Destino: Controle Patrimonial e Sinistros</td>
+                  <td>Leitura: Gerente, Administrador, Depto. Multas | Escrita: Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">quilometragem</td>
+                  <td>Hodômetro atual consolidado do veículo em quilômetros, atualizado nas vistorias de devolução (RF05).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Cadastro Inicial e Vistorias (RF04/RF05) | Destino: Plano de Manutenção Preventiva (RF03)</td>
+                  <td>Leitura: Atendente, Gerente, Oficina/Manutenção | Escrita: Sistema (via Vistoria) e Gerente</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">status</td>
+                  <td>Situação operacional atual do veículo (ex.: "disponível", "alugado", "em manutenção", "baixado"). Regido pela RN12.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Operações de Check-in, Checkout e Manutenção | Destino: Motor de Disponibilidade (RF02/RF03)</td>
+                  <td>Leitura: Todos os perfis internos | Escrita: Gerente, Administrador e Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">marca</td>
+                  <td>Fabricante/montadora do veículo (ex.: Fiat, Volkswagen, Hyundai).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Cadastro de Frota | Destino: Catálogo de Veículos e Relatórios Gerenciais (RF07)</td>
+                  <td>Leitura: Todos os perfis | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">modelo</td>
+                  <td>Denominação comercial do modelo e versão do veículo (ex.: HB20 1.0, T-Cross).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Cadastro de Frota | Destino: Catálogo, Contrato e Relatórios Gerenciais</td>
+                  <td>Leitura: Todos os perfis | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">filial_id_filial</td>
+                  <td>Chave estrangeira que indica a filial atual onde o veículo está alocado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; filial.id_filial)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela filial | Destino: Controle de Pátio e Transferência entre Unidades</td>
+                  <td>Leitura: Atendente, Gerente, Administrador | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">categoria_veiculo_id_categoria</td>
+                  <td>Chave estrangeira que vincula o veículo à sua categoria tarifária.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; categoria_veiculo.id_categoria)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela categoria_veiculo | Destino: Alocação de Reservas e Cálculo de Diárias</td>
+                  <td>Leitura: Todos os perfis | Escrita: Gerente / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4. TABELA: contrato -->
+        <section id="contrato" class="dict-section" data-table="contrato">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">04</span>
+                <h3>contrato</h3>
+                <span class="domain-tag">Operações &amp; Jurídico</span>
+              </div>
+              <p class="table-purpose">Formaliza o instrumento jurídico da locação no check-in, definindo vigência, aceite de termos e veículo alocado. Sujeito à imutabilidade após encerramento (RN13) e retenção de 5 anos (PR01).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 7 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">idcontrato</td>
+                  <td>Identificador único do contrato de locação. Nota DDL: grafia sem sublinhado extraída do script.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: vistoria, multa, fatura, atendimento, contrato_seguro, condutor_adicional, reserva</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente, Depto. Multas | Escrita: Sistema (Check-in RF04)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_emissao</td>
+                  <td>Data e hora exatas da geração e assinatura do contrato no check-in (RF04).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Relógio do Servidor na Abertura (RF04) | Destino: Auditoria Contratual e Retenção Legal (PR01)</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente, Auditoria | Escrita: Sistema (Imutável após emissão)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_retirada</td>
+                  <td>Data e hora de início efetivo da posse do veículo pelo locatário.</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Processo de Check-in (RF04) | Destino: Apuração de Diárias e Rastreamento de Multas (RF10)</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Sistema (RN13)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_devolucao</td>
+                  <td>Data e hora prevista ou efetiva de devolução do veículo para cálculo de prazo e atrasos (RN07).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Check-in (RF04) e Atualizado no Checkout (RF05) | Destino: Faturamento de Diárias Excedentes (RN07)</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Sistema (Bloqueado se FINALIZADO - RN13)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">status</td>
+                  <td>Estado do ciclo de vida do contrato (ex.: ABERTO, ATIVO, FINALIZADO, CANCELADO). Controla gatilho de imutabilidade (RN13).</td>
+                  <td class="col-type">VARCHAR(30)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Operações de Check-in, Checkout e Suporte | Destino: Trigger de Imutabilidade (RN13) e Anonimização (PR05)</td>
+                  <td>Leitura: Todos os perfis internos | Escrita: Atendente, Gerente e Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">termo_de_uso</td>
+                  <td>Indicador booleano obrigatório (1 = Aceito) confirmando ciência das restrições de uso do veículo (RN10).</td>
+                  <td class="col-type">TINYINT</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Assinatura Digital/Balcão no Check-in | Destino: Respaldo Jurídico e Auditoria (PR01)</td>
+                  <td>Leitura: Atendente, Gerente, Jurídico/Auditoria | Escrita: Atendente / Autoatendimento no Check-in</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">veiculo_id_veiculo</td>
+                  <td>Chave estrangeira que vincula o veículo específico entregue ao cliente no contrato.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; veiculo.id_veiculo)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela veiculo (validado como disponível - RN12) | Destino: Vistorias, Multas e Faturamento</td>
+                  <td>Leitura: Todos os perfis internos | Escrita: Atendente / Sistema no Check-in</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 5. TABELA: usuario -->
+        <section id="usuario" class="dict-section" data-table="usuario">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">05</span>
+                <h3>usuario</h3>
+                <span class="domain-tag">Segurança &amp; Identidade</span>
+              </div>
+              <p class="table-purpose">Gerencia os colaboradores e operadores internos autorizados a acessar o sistema, garantindo rastreabilidade e auditabilidade das ações (RNF04, RNF09).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 5 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_usuario</td>
+                  <td>Identificador único do colaborador/operador interno no sistema.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: vistoria, atendimento e log_acesso</td>
+                  <td>Leitura: T.I, Administrador, Auditoria | Escrita: Administrador / T.I</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">nome</td>
+                  <td>Nome completo do colaborador interno (atendente, gerente, analista financeiro ou administrador).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro de RH / Gestão de Acessos | Destino: Trilhas de Auditoria (RNF09) e Termos de Vistoria</td>
+                  <td>Leitura: Gerente, Administrador, T.I | Escrita: Administrador / T.I</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">login</td>
+                  <td>Credencial nominal única de autenticação corporativa do colaborador.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Provisionamento de Identidade (T.I) | Destino: Serviço de Autenticação e Logs (RNF04/RNF09)</td>
+                  <td>Leitura: T.I, Administrador | Escrita: Administrador / T.I</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">senha</td>
+                  <td>Credencial secreta de acesso do usuário (deve ser armazenada exclusivamente via hash criptográfico seguro - RNF04).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Módulo de Autenticação / Troca de Senha | Destino: Validação de Login (Acesso restrito ao serviço de auth)</td>
+                  <td>Leitura: Restrito ao Serviço de Autenticação (Mascarado para humanos) | Escrita: Próprio Usuário / Reset T.I</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">ativo</td>
+                  <td>Status funcional da conta do colaborador (1 = Ativo, 0 = Bloqueado/Desligado), impedindo exclusão física para preservar histórico de auditoria.</td>
+                  <td class="col-type">TINYINT</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Gestão de Acessos / Desligamento | Destino: Controle de Sessão e Auditoria (RNF09)</td>
+                  <td>Leitura: T.I, Gerente, Administrador | Escrita: Administrador / T.I</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 6. TABELA: vistoria -->
+        <section id="vistoria" class="dict-section" data-table="vistoria">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">06</span>
+                <h3>vistoria</h3>
+                <span class="domain-tag">Inspeção &amp; Qualidade</span>
+              </div>
+              <p class="table-purpose">Documenta as inspeções obrigatórias de entrega (check-in) e devolução (checkout), registrando hodômetro, combustível e avarias para cobrança e retenção legal (RF04, RF05, RN04, RN05, PR01).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 9 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_vistoria</td>
+                  <td>Identificador único do laudo de vistoria veicular.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Termo de Vistoria e Faturamento de Avarias/Combustível</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Sistema (RF04/RF05)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">tipo</td>
+                  <td>Classificação da etapa da vistoria (ex.: "CHECK-IN / ENTREGA" ou "CHECK-OUT / DEVOLUCAO"). Regido pela RN05.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Fluxo Operacional de Pátio | Destino: Regras de Liberação (RF04) e Encerramento (RF05)</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Atendente</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">qilometragem_marcada</td>
+                  <td>Leitura do hodômetro no momento da vistoria. Nota DDL: grafia exata extraída do script (recomenda-se ajuste para quilometragem_marcada).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Coleta Física / App de Vistoria | Destino: Atualização de veiculo.quilometragem e Cálculo de Franquia KM</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Atendente</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">nivel_combustivel</td>
+                  <td>Nível do tanque registrado na entrega e devolução para apuração de taxa de reabastecimento (RN04).</td>
+                  <td class="col-type">DECIMAL(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: App de Vistoria no Check-in/Checkout | Destino: Geração de Item Extra na Fatura (RN04)</td>
+                  <td>Leitura: Atendente, Financeiro | Escrita: Atendente</td>
+                </tr>
+                <tr data-lgpd="DPS">
+                  <td class="col-attr">avarias</td>
+                  <td>Descrição de danos físicos ou ocorrências constatadas na inspeção; pode conter relatos de sinistros envolvendo dados sensíveis de saúde/lesões de terceiros.</td>
+                  <td class="col-type">VARCHAR(30)</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dps">[DPS]</span></td>
+                  <td>Origem: Inspeção Visual de Pátio (RF04/RF05) | Destino: Cobrança de Danos (RN06), Manutenção e Retenção CDC (PR01)</td>
+                  <td>Leitura: Gerente, Financeiro, Depto. Sinistros | Escrita: Atendente / Vistoriador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_vistoria</td>
+                  <td>Data e hora exatas da realização e assinatura do termo de vistoria.</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Relógio do Sistema na Vistoria | Destino: Comprovação Temporal de Estado do Veículo (PR01)</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira que vincula a vistoria ao contrato de locação correspondente.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Conferência de Check-in e Checkout</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">veiculo_id_veiculo</td>
+                  <td>Chave estrangeira identificando o veículo inspecionado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; veiculo.id_veiculo)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela veiculo | Destino: Histórico Técnico do Veículo</td>
+                  <td>Leitura: Atendente, Gerente, Manutenção | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">usuario_id_usuario</td>
+                  <td>Chave estrangeira identificando o colaborador responsável pela emissão da vistoria.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; usuario.id_usuario)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela usuario | Destino: Auditoria Operacional (RNF09)</td>
+                  <td>Leitura: Gerente, Administrador, Auditoria | Escrita: Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 7. TABELA: multa -->
+        <section id="multa" class="dict-section" data-table="multa">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">07</span>
+                <h3>multa</h3>
+                <span class="domain-tag">Infrações &amp; Conformidade Legal</span>
+              </div>
+              <p class="table-purpose">Registra infrações de trânsito cometidas durante a vigência da locação para repasse financeiro e indicação de condutor infrator, com retenção obrigatória de 5 anos (RF10, RN06, PR02).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 6 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_multa</td>
+                  <td>Identificador único do auto de infração registrado no sistema.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Faturamento de Repasse e Arquivo Legal (PR02)</td>
+                  <td>Leitura: Depto. Multas, Financeiro, Gerente | Escrita: Depto. Multas / Sistema</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">data_infracao</td>
+                  <td>Data e hora exatas da autuação para cruzamento automático com o contrato ativo no momento do fato (RF10).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Notificação DETRAN / Órgão Autuador | Destino: Associação Automática ao Locatário (RF10)</td>
+                  <td>Leitura: Depto. Multas, Financeiro, Gerente | Escrita: Depto. Multas / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">valor</td>
+                  <td>Valor pecuniário da penalidade de trânsito a ser repassado ao cliente conforme contrato (RN06).</td>
+                  <td class="col-type">DECIMAL(6)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Auto de Infração / Órgão de Trânsito | Destino: Gatilho de Inserção de Taxa Extra na Fatura (RN06)</td>
+                  <td>Leitura: Depto. Multas, Financeiro, Gerente | Escrita: Depto. Multas / Administrador</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">pontos</td>
+                  <td>Pontuação atribuída na Carteira Nacional de Habilitação (CNH) vinculada ao prontuário do condutor infrator.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Notificação de Autuação (CTB) | Destino: Processo de Indicação de Real Infrator junto ao DETRAN</td>
+                  <td>Leitura: Depto. Multas, Gerente | Escrita: Depto. Multas / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira que vincula a infração ao contrato vigente na data/hora do ocorrido (RN06).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato (Cruzamento Temporal RF10) | Destino: Cobrança e Notificação ao Cliente</td>
+                  <td>Leitura: Depto. Multas, Financeiro, Gerente | Escrita: Depto. Multas / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">veiculo_id_veiculo</td>
+                  <td>Chave estrangeira que identifica o veículo autuado pela placa.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; veiculo.id_veiculo)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela veiculo | Destino: Histórico de Ocorrências da Frota</td>
+                  <td>Leitura: Depto. Multas, Gerente | Escrita: Depto. Multas / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 8. TABELA: fatura -->
+        <section id="fatura" class="dict-section" data-table="fatura">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">08</span>
+                <h3>fatura</h3>
+                <span class="domain-tag">Financeiro &amp; Faturamento</span>
+              </div>
+              <p class="table-purpose">Consolida os valores devidos por contrato (diárias, seguros, multas, taxas extras), com exclusão física proibida e guarda obrigatória por 5 anos conforme CTN Art. 173/174 (RF06, PR03).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 6 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_fatura</td>
+                  <td>Identificador único do título/fatura financeira emitida.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: item_fatura, pagamento e Relatórios Financeiros (RF07)</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">valor_total</td>
+                  <td>Montante total consolidado da fatura resultante da soma dos itens faturados (RF06).</td>
+                  <td class="col-type">DECIMAL(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Consolidação de item_fatura | Destino: Processamento de Pagamentos e Receita Gerencial (RF07)</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_vencimento</td>
+                  <td>Data limite estipulada para liquidação financeira da fatura.</td>
+                  <td class="col-type">DATE</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Módulo de Faturamento (RF06) | Destino: Controle de Inadimplência (RF07)</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Financeiro / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">status_pagamento</td>
+                  <td>Situação financeira da fatura (ex.: ABERTA, PAGA, PARCIAL, VENCIDA, CANCELADA).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Baixa de Pagamentos (RF06) | Destino: Painel de Inadimplência e Liberação de Novo Crédito</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Financeiro / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">ativo</td>
+                  <td>Indicador de exclusão lógica obrigatória (1 = Válida, 0 = Cancelada), sendo proibido DELETE físico pela PR03.</td>
+                  <td class="col-type">TINYINT</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Rotina de Cancelamento Fiscal/Financeiro | Destino: Auditoria Tributária (5 anos - PR03)</td>
+                  <td>Leitura: Financeiro, Gerente, Auditoria | Escrita: Financeiro / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira vinculando a fatura ao contrato de locação originador.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Rastreabilidade Contratual-Financeira</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 9. TABELA: item_fatura -->
+        <section id="item_fatura" class="dict-section" data-table="item_fatura">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">09</span>
+                <h3>item_fatura</h3>
+                <span class="domain-tag">Financeiro &amp; Detalhamento</span>
+              </div>
+              <p class="table-purpose">Detalha cada lançamento componente da fatura (diárias, seguros, condutor adicional, combustível, avarias, multas e taxas de cancelamento), protegida contra exclusão física pela PR03.</p>
+            </div>
+            <span class="engine-badge">InnoDB | 6 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_item</td>
+                  <td>Identificador único da linha de lançamento dentro da fatura.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Demonstrativo Analítico da Fatura</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">descricao</td>
+                  <td>Descrição discriminada da rubrica cobrada (ex.: Diárias Locação, Proteção Básica, Taxa Combustível, Repasse Multa).</td>
+                  <td class="col-type">VARCHAR(100)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Regras de Cálculo (RN03, RN04, RN06, RN07, RN08) | Destino: Extrato do Cliente (CDC)</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">valor</td>
+                  <td>Valor monetário individual do item cobrado na fatura.</td>
+                  <td class="col-type">DECIMAL(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tarifário, Multas, Vistorias ou Seguros | Destino: Somatório de fatura.valor_total</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">ativo</td>
+                  <td>Indicador de exclusão lógica do item (1 = Ativo, 0 = Estornado/Cancelado), proibindo DELETE físico (PR03).</td>
+                  <td class="col-type">TINYINT</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Estorno Financeiro | Destino: Auditoria Contábil e Fiscal (PR03)</td>
+                  <td>Leitura: Financeiro, Gerente, Auditoria | Escrita: Financeiro / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">fatura_id_fatura</td>
+                  <td>Chave estrangeira referenciando a fatura pai à qual o item pertence.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; fatura.id_fatura)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela fatura | Destino: Agrupamento de Cobrança</td>
+                  <td>Leitura: Financeiro, Gerente, Atendente | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">fatura_contrato_idcontrato</td>
+                  <td>Chave estrangeira composta herdada da fatura identificando o contrato associado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; fatura.contrato_idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela fatura | Destino: Rastreabilidade Direta Item-Contrato</td>
+                  <td>Leitura: Financeiro, Gerente | Escrita: Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 10. TABELA: pagamento -->
+        <section id="pagamento" class="dict-section" data-table="pagamento">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">10</span>
+                <h3>pagamento</h3>
+                <span class="domain-tag">Tesouraria &amp; Liquidação</span>
+              </div>
+              <p class="table-purpose">Registra as transações de quitação financeira vinculadas às faturas, assegurando rastreabilidade auditável (RNF09) e retenção obrigatória por 5 anos sem exclusão física (PR03).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 7 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_pagamento</td>
+                  <td>Identificador único do comprovante de pagamento registrado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Conciliação Financeira e Auditoria (RNF09)</td>
+                  <td>Leitura: Financeiro, Gerente, Auditoria | Escrita: Financeiro / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_pagamento</td>
+                  <td>Data e hora exatas da liquidação ou aprovação da transação financeira.</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Gateway de Pagamento / Caixa | Destino: Fluxo de Caixa e Relatórios Gerenciais (RF07)</td>
+                  <td>Leitura: Financeiro, Gerente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">valor_pago</td>
+                  <td>Valor efetivamente liquidado na operação de pagamento.</td>
+                  <td class="col-type">DECIMAL(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Transação Financeira (RF06) | Destino: Atualização de fatura.status_pagamento</td>
+                  <td>Leitura: Financeiro, Gerente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">metodo_pagamento</td>
+                  <td>Meio utilizado para liquidação (ex.: Cartão de Crédito, PIX, Débito), vinculável ao perfil financeiro do titular (RN02).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Checkout / Terminal de Pagamento | Destino: Conciliação de Adquirência e Auditoria</td>
+                  <td>Leitura: Financeiro, Gerente | Escrita: Sistema / Financeiro</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">ativo</td>
+                  <td>Indicador de exclusão lógica do pagamento (1 = Confirmado, 0 = Estornado), vedado DELETE físico pela PR03.</td>
+                  <td class="col-type">TINYINT</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Processo de Estorno / Chargeback | Destino: Auditoria Financeira (5 anos - PR03)</td>
+                  <td>Leitura: Financeiro, Gerente, Auditoria | Escrita: Financeiro / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">fatura_id_fatura</td>
+                  <td>Chave estrangeira identificando a fatura quitada.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; fatura.id_fatura)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela fatura | Destino: Baixa de Títulos a Receber</td>
+                  <td>Leitura: Financeiro, Gerente | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">fatura_contrato_idcontrato</td>
+                  <td>Chave estrangeira composta herdada da fatura identificando o contrato liquidado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; fatura.contrato_idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela fatura | Destino: Rastreabilidade Pagamento-Contrato</td>
+                  <td>Leitura: Financeiro, Gerente | Escrita: Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 11. TABELA: cliente -->
+        <section id="cliente" class="dict-section" data-table="cliente">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">11</span>
+                <h3>cliente</h3>
+                <span class="domain-tag">Cadastro Mestre &amp; Privacidade LGPD</span>
+              </div>
+              <p class="table-purpose">Entidade mestre dos titulares locatários (Pessoa Física ou Jurídica), contendo identificação civil, habilitação e endereço. Regida estritamente pela LGPD (PR06, RNF04) e regras de elegibilidade (RN01, RN02, RN11).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 14 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_cliente</td>
+                  <td>Identificador único interno (surrogate key) do cliente na base da Localiza.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: reserva, atendimento, telefone</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente | Escrita: Sistema (RF01)</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">nome</td>
+                  <td>Nome civil completo ou razão social do locatário titular (RF01).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro Balcão / App / Site (RF01) | Destino: Contratos, Faturas, Suporte e Notificações</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente, Depto. Multas | Escrita: Atendente / Próprio Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">cpf_cnpj</td>
+                  <td>Documento fiscal único do titular (CPF para PF ou CNPJ para PJ). Obrigatório e não duplicado (RF01, RN02).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Coleta Cadastral / Validação Receita (RF01) | Destino: Análise de Crédito, Contratos e Faturas</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas (Mascarado em logs) | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">cnh</td>
+                  <td>Número de registro da Carteira Nacional de Habilitação válida do locatário (RF01, RN02).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Apresentação Documental / Validação SENATRAN (RF01) | Destino: Liberação de Contrato e Indicação de Multas (RF10)</td>
+                  <td>Leitura: Atendente, Gerente, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">email</td>
+                  <td>Endereço de correio eletrônico principal para envio de reservas, contratos, faturas e notificações (RF01).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro Digital / Balcão (RF01) | Destino: Serviço de Mensageria, Acesso App e Comunicações LGPD</td>
+                  <td>Leitura: Atendente, Financeiro, Suporte | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">data_nascimento</td>
+                  <td>Data de nascimento do titular utilizada para validar idade mínima obrigatória de 21 ou 25 anos (RN01).</td>
+                  <td class="col-type">DATE</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Documento Oficial no Cadastro (RF01) | Destino: Regra de Elegibilidade por Categoria (RN01)</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">logradouro</td>
+                  <td>Nome da via pública (rua, avenida, alameda) do endereço residencial ou comercial do cliente.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro de Endereço (RF01) | Destino: Contrato de Locação, Cobrança e Notificação de Multas (DETRAN)</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">numero</td>
+                  <td>Número predial do imóvel no endereço do cliente.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro de Endereço (RF01) | Destino: Contrato, Cobrança e Indicação de Infrator</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">complemento</td>
+                  <td>Informações adicionais de localização do imóvel (apartamento, bloco, sala).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro de Endereço (RF01) | Destino: Correspondência e Faturamento</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">bairro</td>
+                  <td>Bairro ou distrito referente ao endereço cadastrado do cliente.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro / Consulta CEP (RF01) | Destino: Contrato, Fatura e Notificações</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">cidade</td>
+                  <td>Município de domicílio do cliente.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro / Consulta CEP (RF01) | Destino: Contrato, Fatura e Análises Regionais</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">uf</td>
+                  <td>Sigla da Unidade Federativa (estado) do endereço do cliente (ex.: SP, MG, RJ).</td>
+                  <td class="col-type">CHAR(2)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro / Consulta CEP (RF01) | Destino: Contrato, Faturamento e Órgãos de Trânsito</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">cep</td>
+                  <td>Código de Endereçamento Postal do domicílio do cliente.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro / Base Correios (RF01) | Destino: Validação de Endereço e Correspondência</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Multas | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">ativo</td>
+                  <td>Status cadastral do cliente (1 = Ativo, 0 = Inativo/Bloqueado). Bloqueia novas reservas e contratos quando inativo (RN11). Nota DDL: declarado como VARCHAR(45).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Análise de Risco / Solicitação LGPD | Destino: Trigger de Bloqueio em Reservas e Contratos (RN11)</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Gerente / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 12. TABELA: atendimento -->
+        <section id="atendimento" class="dict-section" data-table="atendimento">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">12</span>
+                <h3>atendimento</h3>
+                <span class="domain-tag">Relacionamento &amp; Suporte 24h</span>
+              </div>
+              <p class="table-purpose">Registra chamados, protocolos de dúvidas, assistência 24h e solicitações de extensão de contrato vinculadas ao cliente e ao contrato ativo (RF08, RNF10).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 7 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_atendimento</td>
+                  <td>Número de protocolo (ticket) único gerado imediatamente na abertura do suporte (RF08).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Histórico de Suporte ao Cliente e SLA de Atendimento</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Sistema (RF08)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_abertura</td>
+                  <td>Data e hora exatas do registro do protocolo de atendimento.</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Relógio do Sistema na Abertura | Destino: Indicadores de Tempo de Resposta (RNF10)</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">descrição</td>
+                  <td>Relato resumido da solicitação, dúvida ou ocorrência reportada pelo cliente. Nota DDL: grafia com acento extraída do script.</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Central de Atendimento / Chat (RF08) | Destino: Tratativa Operacional e Auditoria de Qualidade</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Atendente</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">status</td>
+                  <td>Situação atual do protocolo de suporte (ex.: ABERTO, EM_ATENDIMENTO, RESOLVIDO, ENCERRADO).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Fluxo de Atendimento (RF08) | Destino: Painel de Pendências e Satisfação (RNF10)</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Atendente / Gerente</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira que vincula o protocolo ao contrato ativo do cliente (RF08).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Rastreabilidade de Extensões e Assistência</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Atendente / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">cliente_id_cliente</td>
+                  <td>Chave estrangeira identificando o cliente solicitante do atendimento.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; cliente.id_cliente)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela cliente | Destino: Histórico Único do Cliente (CRM Operacional)</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Atendente / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">usuario_id_usuario</td>
+                  <td>Chave estrangeira identificando o atendente responsável pelo registro e condução do chamado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; usuario.id_usuario)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela usuario | Destino: Auditoria de Atendimento (RNF09)</td>
+                  <td>Leitura: Gerente, Administrador | Escrita: Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 13. TABELA: seguro -->
+        <section id="seguro" class="dict-section" data-table="seguro">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">13</span>
+                <h3>seguro</h3>
+                <span class="domain-tag">Proteções &amp; Coberturas</span>
+              </div>
+              <p class="table-purpose">Catálogo das modalidades de proteção veicular disponíveis (cobertura básica obrigatória, proteção contra terceiros, perda total) e suas tarifas diárias (RF04, RN09).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 3 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_seguro</td>
+                  <td>Identificador único da modalidade de seguro ou proteção adicional.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Tabela associativa contrato_seguro</td>
+                  <td>Leitura: Todos os perfis | Escrita: Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">nome</td>
+                  <td>Denominação da cobertura (ex.: Proteção Básica Obrigatória, Proteção Terceiros, Proteção Total).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Catálogo de Produtos e Seguros | Destino: Check-in (RF04), Contrato e Fatura</td>
+                  <td>Leitura: Público (Site/App) e Colaboradores | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">valor_diaria</td>
+                  <td>Valor adicional cobrado por dia de locação para a respectiva cobertura contratada (RF06, RN09).</td>
+                  <td class="col-type">DECIMAL(10)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela Comercial de Seguros | Destino: Cálculo de Itens da Fatura (RF06)</td>
+                  <td>Leitura: Público (Site/App), Atendente, Financeiro | Escrita: Gerente / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 14. TABELA: contrato_seguro -->
+        <section id="contrato_seguro" class="dict-section" data-table="contrato_seguro">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">14</span>
+                <h3>contrato_seguro</h3>
+                <span class="domain-tag">Associação Contratual</span>
+              </div>
+              <p class="table-purpose">Tabela associativa (N:N) que vincula as proteções contratadas a cada contrato de locação, assegurando a adesão obrigatória ao seguro básico no check-in (RF04, RN09).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 3 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">idcontrato_seguro</td>
+                  <td>Identificador único do vínculo entre contrato e proteção. Nota DDL: grafia sem sublinhado extraída do script.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Auditoria de Coberturas Contratadas</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Sinistros | Escrita: Sistema (RF04)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira identificando o contrato que possui a cobertura contratada.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Validação de Seguro Básico Obrigatório (RN09)</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Sinistros | Escrita: Atendente / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">seguro_id_seguro</td>
+                  <td>Chave estrangeira identificando a modalidade de seguro selecionada pelo locatário.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; seguro.id_seguro)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela seguro | Destino: Faturamento de Adicionais (RF06) e Apuração de Franquia em Sinistros</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Sinistros | Escrita: Atendente / Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 15. TABELA: condutor_adicional -->
+        <section id="condutor_adicional" class="dict-section" data-table="condutor_adicional">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">15</span>
+                <h3>condutor_adicional</h3>
+                <span class="domain-tag">Autorização de Direção &amp; LGPD</span>
+              </div>
+              <p class="table-purpose">Registra motoristas extras autorizados formalmente no contrato mediante taxa adicional, restringindo a condução apenas a habilitados cadastrados (RN03).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 4 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">idcondutor_adicional</td>
+                  <td>Identificador único do condutor adicional autorizado no contrato. Nota DDL: grafia sem sublinhado extraída do script.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Termo Aditivo Contratual e Faturamento</td>
+                  <td>Leitura: Atendente, Gerente, Depto. Sinistros | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">nome</td>
+                  <td>Nome civil completo do motorista adicional autorizado a conduzir o veículo (RN03).</td>
+                  <td class="col-type">VARCHAR(50)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro no Check-in / Aditivo (RN03) | Destino: Contrato de Locação e Cobertura Securitária</td>
+                  <td>Leitura: Atendente, Gerente, Depto. Sinistros/Multas | Escrita: Atendente</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">cnh</td>
+                  <td>Número da Carteira Nacional de Habilitação válida do condutor adicional (RN02, RN03).</td>
+                  <td class="col-type">VARCHAR(20)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Documento Oficial no Check-in | Destino: Validação de Habilitação e Apuração de Sinistros</td>
+                  <td>Leitura: Atendente, Gerente, Depto. Sinistros/Multas | Escrita: Atendente</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira vinculando o condutor autorizado ao contrato específico.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Cobrança de Taxa de Condutor Adicional (RN03)</td>
+                  <td>Leitura: Atendente, Financeiro, Depto. Sinistros | Escrita: Atendente / Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 16. TABELA: log_acesso -->
+        <section id="log_acesso" class="dict-section" data-table="log_acesso">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">16</span>
+                <h3>log_acesso</h3>
+                <span class="domain-tag">Auditoria &amp; Marco Civil (COBIT DSS05)</span>
+              </div>
+              <p class="table-purpose">Registra trilhas de auditoria de operações críticas no banco de dados (inserções, alterações e exclusões lógicas), com retenção mínima de 6 meses conforme Marco Civil da Internet (RNF09, PR04).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 5 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_log</td>
+                  <td>Identificador único do evento de auditoria registrado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL / Triggers de Auditoria | Destino: Relatórios de Segurança e Conformidade</td>
+                  <td>Leitura: T.I, Administrador, Auditoria | Escrita: Exclusiva do Sistema (Append-Only)</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">acao_realizada</td>
+                  <td>Descrição da operação executada pelo operador (ex.: INSERT, UPDATE, EXCLUSAO_LOGICA) vinculada ao usuário (RNF09).</td>
+                  <td class="col-type">VARCHAR(100)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Camada de Aplicação / Triggers BD | Destino: Investigação de Incidentes e Auditoria (RNF09)</td>
+                  <td>Leitura: T.I, Administrador, Auditoria | Escrita: Exclusiva do Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">tabela_afetada</td>
+                  <td>Nome da tabela do banco de dados que sofreu a operação auditada.</td>
+                  <td class="col-type">VARCHAR(100)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Metadados da Transação | Destino: Rastreabilidade de Alterações por Entidade</td>
+                  <td>Leitura: T.I, Administrador, Auditoria | Escrita: Exclusiva do Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_hora</td>
+                  <td>Carimbo temporal (timestamp) exato do evento, utilizado também pela rotina de expurgo após 6 meses (PR04).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Relógio do Servidor de Banco de Dados | Destino: Job de Retenção/Expurgo Marco Civil (PR04)</td>
+                  <td>Leitura: T.I, Administrador, Auditoria | Escrita: Exclusiva do Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">usuario_id_usuario</td>
+                  <td>Chave estrangeira identificando o usuário interno autor da ação registrada (RNF09).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; usuario.id_usuario)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela usuario (Sessão Autenticada) | Destino: Responsabilização e Não-Repúdio</td>
+                  <td>Leitura: T.I, Administrador, Auditoria | Escrita: Exclusiva do Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 17. TABELA: telemetria_veiculo -->
+        <section id="telemetria_veiculo" class="dict-section" data-table="telemetria_veiculo">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">17</span>
+                <h3>telemetria_veiculo</h3>
+                <span class="domain-tag">IoT, Rastreamento &amp; Minimização LGPD</span>
+              </div>
+              <p class="table-purpose">Armazena coordenadas de geolocalização transmitidas pelos dispositivos embarcados na frota, sujeitas à política de minimização e anonimização após o encerramento do contrato (PR05).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 4 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_telemetria</td>
+                  <td>Identificador único do pacote de telemetria recebido do veículo.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Monitoramento de Frota e Recuperação</td>
+                  <td>Leitura: Gerente, T.I, Segurança Patrimonial | Escrita: Sistema IoT</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_hora</td>
+                  <td>Data e hora da captura do sinal de posicionamento geográfico.</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Módulo GPS Embarcado no Veículo | Destino: Cronologia de Deslocamento e Retenção PR05</td>
+                  <td>Leitura: Gerente, T.I, Segurança Patrimonial | Escrita: Sistema IoT</td>
+                </tr>
+                <tr data-lgpd="DPS">
+                  <td class="col-attr">coordenadas_gps</td>
+                  <td>Latitude e longitude em tempo real do veículo; dado sensível de rastreamento comportamental/localização quando vinculado a locatário ativo, devendo ser anonimizado após checkout (PR05).</td>
+                  <td class="col-type">VARCHAR(60)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dps">[DPS]</span></td>
+                  <td>Origem: Rastreador / Telemetria Veicular | Destino: Segurança da Frota (Anonimizado pós-contrato - PR05)</td>
+                  <td>Leitura: Restrito (Gerente de Frota / Segurança Patrimonial) | Escrita: Sistema IoT</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">veiculo_id_veiculo</td>
+                  <td>Chave estrangeira identificando o ativo físico monitorado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; veiculo.id_veiculo)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela veiculo | Destino: Localização do Ativo da Frota</td>
+                  <td>Leitura: Gerente, T.I, Segurança Patrimonial | Escrita: Sistema IoT</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 18. TABELA: manutencao -->
+        <section id="manutencao" class="dict-section" data-table="manutencao">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">18</span>
+                <h3>manutencao</h3>
+                <span class="domain-tag">Oficina &amp; Disponibilidade</span>
+              </div>
+              <p class="table-purpose">Controla as intervenções preventivas e corretivas da frota, bloqueando automaticamente a alocação do veículo em novas reservas ou check-ins enquanto estiver em oficina (RF03, RN12).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 5 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_manutencao</td>
+                  <td>Identificador único da ordem de serviço de manutenção do veículo.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Histórico de Manutenção da Frota (RF03)</td>
+                  <td>Leitura: Gerente, Administrador, Oficina | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_inicio</td>
+                  <td>Data e hora de entrada do veículo em manutenção, alterando seu status para indisponível (RN12).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Gestão de Frota / Oficina (RF03) | Destino: Bloqueio de Disponibilidade (RN12)</td>
+                  <td>Leitura: Gerente, Administrador, Atendente | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_fim</td>
+                  <td>Data e hora de conclusão do serviço e liberação técnica do veículo (NULL enquanto estiver em andamento).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Encerramento da Ordem de Serviço | Destino: Retorno do Veículo ao Status Disponível (RF03)</td>
+                  <td>Leitura: Gerente, Administrador, Atendente | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">descricao</td>
+                  <td>Detalhamento técnico dos serviços realizados, peças substituídas ou reparos de avarias.</td>
+                  <td class="col-type">TEXT(200)</td>
+                  <td class="col-const"><strong>[NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Laudo Técnico da Oficina | Destino: Histórico de Confiabilidade da Frota (RF07)</td>
+                  <td>Leitura: Gerente, Administrador | Escrita: Gerente / Administrador</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">veiculo_id_veiculo</td>
+                  <td>Chave estrangeira identificando o veículo submetido à manutenção.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; veiculo.id_veiculo)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela veiculo | Destino: Validação de Disponibilidade (RN12)</td>
+                  <td>Leitura: Gerente, Administrador, Atendente | Escrita: Gerente / Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 19. TABELA: reserva -->
+        <section id="reserva" class="dict-section" data-table="reserva">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">19</span>
+                <h3>reserva</h3>
+                <span class="domain-tag">Agendamento &amp; Disponibilidade</span>
+              </div>
+              <p class="table-purpose">Gerencia as solicitações antecipadas de locação por categoria, filial e período, bloqueando disponibilidade para evitar overbooking e aplicando regras de cancelamento (RF02, RF09, RN08, RN11).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 9 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_reseva</td>
+                  <td>Identificador único da reserva. Nota DDL: grafia exata extraída do script (recomenda-se ajuste para id_reserva).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Comprovante de Reserva e Conversão em Contrato (RF04)</td>
+                  <td>Leitura: Atendente, Gerente, Autoatendimento | Escrita: Sistema (RF02/RF09)</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">data_retirada</td>
+                  <td>Data e hora agendadas para retirada do veículo; base para cálculo de multa por cancelamento com menos de 24h (RN08).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Site, App ou Balcão (RF02/RF09) | Destino: Bloqueio de Frota e Trigger de Cancelamento (RN08)</td>
+                  <td>Leitura: Atendente, Gerente, Titular | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">dat_devolucao</td>
+                  <td>Data e hora previstas para devolução do veículo. Nota DDL: grafia exata extraída do script (recomenda-se ajuste para data_devolucao).</td>
+                  <td class="col-type">DATETIME</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Site, App ou Balcão (RF02/RF09) | Destino: Cálculo de Disponibilidade Temporal da Frota</td>
+                  <td>Leitura: Atendente, Gerente, Titular | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">status</td>
+                  <td>Estado da reserva (ex.: CONFIRMADA, PENDENTE, EFETIVADA, CANCELADA). Dispara taxa se alterada para CANCELADA &lt; 24h (RN08).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Operações de Reserva e Check-in | Destino: Trigger de Taxa de Cancelamento (RN08) e Relatórios (RF07)</td>
+                  <td>Leitura: Atendente, Gerente, Financeiro | Escrita: Atendente / Titular / Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">filial_id_filial</td>
+                  <td>Chave estrangeira identificando a filial selecionada para retirada do veículo (RF02).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; filial.id_filial)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela filial | Destino: Planejamento de Pátio da Unidade</td>
+                  <td>Leitura: Atendente, Gerente, Titular | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">categoria_veiculo_id_categoria</td>
+                  <td>Chave estrangeira identificando o grupo tarifário reservado pelo cliente (RF02).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; categoria_veiculo.id_categoria)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela categoria_veiculo | Destino: Bloqueio de Disponibilidade por Categoria (RF02)</td>
+                  <td>Leitura: Atendente, Gerente, Titular | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">cliente_id_cliente</td>
+                  <td>Chave estrangeira identificando o cliente solicitante, validado quanto ao status ativo (RN02, RN11).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; cliente.id_cliente)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela cliente | Destino: Histórico de Reservas do Cliente</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Atendente / Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_idcontrato</td>
+                  <td>Chave estrangeira vinculando a reserva ao contrato gerado (Nota: ver recomendação de inversão de FK na Parte 2).</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.idcontrato)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Rastreabilidade Reserva-Contrato</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Sistema</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">contrato_veiculo_id_veiculo</td>
+                  <td>Chave estrangeira composta herdada da chave primária de contrato referenciando o veículo alocado.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; contrato.veiculo_id_veiculo)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela contrato | Destino: Rastreabilidade Veículo-Reserva</td>
+                  <td>Leitura: Atendente, Gerente | Escrita: Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 20. TABELA: telefone -->
+        <section id="telefone" class="dict-section" data-table="telefone">
+          <div class="dict-section-header">
+            <div>
+              <div class="table-title-row">
+                <span class="table-index">20</span>
+                <h3>telefone</h3>
+                <span class="domain-tag">Contato &amp; Normalização 3FN</span>
+              </div>
+              <p class="table-purpose">Armazena de forma normalizada (1:N) os números de contato telefônico vinculados ao cadastro de cada cliente para comunicação operacional e suporte (RF01, Seção 6.3).</p>
+            </div>
+            <span class="engine-badge">InnoDB | 3 colunas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="dict-table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Descrição / Regra de Negócio</th>
+                  <th>Tipo e Tamanho</th>
+                  <th>Constraints</th>
+                  <th>Privacidade (LGPD/GDPR)</th>
+                  <th>Linhagem (Data Lineage)</th>
+                  <th>Controle de Acesso (RBAC)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">id_telefone</td>
+                  <td>Identificador único do registro de telefone do cliente.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[AUTO_INCREMENT]</strong> <strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: SGBD MySQL | Destino: Agenda de Contatos do Cliente</td>
+                  <td>Leitura: Atendente, Suporte, Financeiro | Escrita: Sistema (RF01)</td>
+                </tr>
+                <tr data-lgpd="DP">
+                  <td class="col-attr">numero</td>
+                  <td>Número telefônico (celular ou fixo com DDD) do titular para contato operacional, assistência 24h e cobrança (RF01, RF08).</td>
+                  <td class="col-type">VARCHAR(45)</td>
+                  <td class="col-const"><strong>[NOT NULL]</strong></td>
+                  <td><span class="badge-lgpd badge-dp">[DP]</span></td>
+                  <td>Origem: Cadastro de Clientes (RF01) | Destino: Central de Atendimento (RF08) e Cobrança (RF06)</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente | Escrita: Atendente / Próprio Titular</td>
+                </tr>
+                <tr data-lgpd="N/A">
+                  <td class="col-attr">cliente_id_cliente</td>
+                  <td>Chave estrangeira que associa o número telefônico ao cliente titular.</td>
+                  <td class="col-type">INT</td>
+                  <td class="col-const"><strong>[PK]</strong> <strong>[FK]</strong> <strong>[NOT NULL]</strong> (&rarr; cliente.id_cliente)</td>
+                  <td><span class="badge-lgpd badge-na">[N/A]</span></td>
+                  <td>Origem: Tabela cliente | Destino: Identificação de Contato no Atendimento</td>
+                  <td>Leitura: Atendente, Financeiro, Gerente | Escrita: Atendente / Sistema</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+
+      <footer class="app-footer">
+        <p><strong>Localiza Rent a Car</strong> — Dicionário de Dados Corporativo &amp; Governança (DAMA-DMBOK / COBIT / LGPD / CDC)</p>
+        <p>Desenvolvido por Gustavo Ferreira R. Pimentel, Gabriel da Conceição e Dania Huito Choque | Orientação: Prof. Dr. Diego Marques de Carvalho</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal Visualizador do DER com Panzoom.js -->
+  <div id="derModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="derModalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <i class="fa-solid fa-diagram-project"></i>
+          <div>
+            <h2 id="derModalTitle">Diagrama Entidade-Relacionamento (DER) — Localiza Rent a Car</h2>
+            <span>Use o scroll do mouse para aplicar zoom e arraste com o clique pressionado para navegar</span>
+          </div>
+        </div>
+        <button type="button" id="closeDerModalBtn" class="modal-close-btn" aria-label="Fechar visualizador do DER">
+          <i class="fa-solid fa-xmark"></i>
+          <span>Fechar</span>
+        </button>
+      </div>
+
+      <div class="modal-viewport" id="derViewport">
+        <div id="panzoomTarget" class="panzoom-target">
+          <img id="derImage" src="assets/der.png" alt="Diagrama Entidade-Relacionamento do Sistema de Gestão Operacional Localiza Rent a Car">
+          <div id="derFallbackNotice" class="der-fallback hidden">
+            <i class="fa-solid fa-image"></i>
+            <h3>Arquivo assets/der.png não localizado</h3>
+            <p>Exporte o diagrama atualizado do MySQL Workbench (<code>DER Mysql Projeto Localiza.mwb</code>) em formato PNG e salve como <code>assets/der.png</code>.</p>
+          </div>
+        </div>
+
+        <!-- Botões Fixos de Controle de Zoom -->
+        <div class="panzoom-controls" aria-label="Controles de zoom do diagrama">
+          <button type="button" id="zoomInBtn" class="pz-btn" title="Aumentar Zoom (+)">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Zoom +</span>
+          </button>
+          <button type="button" id="zoomOutBtn" class="pz-btn" title="Diminuir Zoom (-)">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+            <span>Zoom -</span>
+          </button>
+          <button type="button" id="zoomResetBtn" class="pz-btn pz-btn-reset" title="Restaurar Tamanho Original">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Reset</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Biblioteca Panzoom.js via CDN Oficial -->
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
